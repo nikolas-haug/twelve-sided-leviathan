@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}} - {{siteTitle}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{baseUrl}}dist/style.css">
+</head>
+<body>
+    {{> header}}
+    {{> nav}}
+
+    <section>
+        <div class="container-lg">
+            <div class="row">
+                <main class="col-med-9 content">
+                    <article class="blog-post">
+                        <header class="post-header">
+                            <h1 class="post-title">{{title}}</h1>
+                            <div class="post-meta">
+                                {{#date}}<span class="post-date">{{date}}</span>{{/date}}
+                                {{#author}}<span class="post-author">by {{author}}</span>{{/author}}
+                            </div>
+                        </header>
+                        <div class="post-content">
+                            {{content}}
+                        </div>
+                    </article>
+                    <div class="post-navigation">
+                        <a href="{{baseUrl}}index.html" class="button">← Back to Blog</a>
+                    </div>
+                </main>
+                
+                {{> sidebar}}
+            </div>
+        </div>
+    </section>
+
+    {{> footer}}
+    
+    <script src="{{baseUrl}}js/navbar-basic.js"></script>
+</body>
+</html>

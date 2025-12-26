@@ -1,0 +1,36 @@
+{
+  "name": "twelve-sided-leviathan-website",
+  "version": "1.0.0",
+  "description": "TTRPG blog website using lightweight UI framework",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "live-server build",
+    "start": "npm-run-all --parallel devserver dev dev:content",
+    "dev": "sass ./main.scss ./dist/style.css --watch",
+    "build": "sass ./main.scss ./dist/style.css --style compressed",
+    "prefix": "postcss --use autoprefixer -b 'last 5 versions' dist/style.css -o dist/style.prefix.css",
+    "compress": "sass dist/style.prefix.css dist/style.min.css --style compressed",
+    "build:css": "npm-run-all build prefix compress",
+    "build:content": "node scripts/build-content.js",
+    "dev:content": "node scripts/build-content.js --watch",
+    "build:all": "npm-run-all build:css build:content",
+    "deploy": "node scripts/deploy.js",
+    "deploy:all": "npm-run-all build:all deploy"
+  },
+  "author": "niko",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "sass": "^1.83.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.0",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "front-matter": "^4.0.2",
+    "fs-extra": "^11.2.0",
+    "chokidar": "^3.6.0"
+  }
+}
+

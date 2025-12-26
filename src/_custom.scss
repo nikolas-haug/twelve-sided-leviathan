@@ -1,0 +1,472 @@
+/**
+*
+* THEME SPECIFIC COMPONENTS
+*
+*/
+header {
+  background-color: $color-primary;
+  background-image: url('../assets/images/whale-skyline-public-domain.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  // text-transform: uppercase;
+  padding: 3rem 0;
+  
+  // Add a dark overlay for better text readability
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-primary, 0.6);
+    z-index: 0;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1 {
+    color: $color-grey-light;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+  }
+  @media only screen and (max-width: $small) {
+    margin-top: 0;
+  }
+}
+
+.banner {
+  height: 2rem;
+  background-color: $color-tertiary;
+}
+
+.section-heading {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.target-link {
+  padding: .5rem 0;
+  text-transform: uppercase;
+  color: $color-grey-dark;
+}
+
+.sidebar {
+  h3 {
+    padding-top: 2rem;
+  }
+}
+
+.sidebar--fixed {
+  position: fixed;
+  top: 0;
+  max-width: 235px;
+}
+
+.content--fixed {
+  margin-left: 25%;
+  @media only screen and (max-width: $small) {
+    margin-left: 0;
+  }
+}
+
+.sidebar--active {
+  color: $color-secondary;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.example__heading {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.example__col {
+    background: $color-secondary;
+    color: $color-grey-light;
+    border: 1px solid $color-grey-dark;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 2.5rem 0;
+  background-color: $color-tertiary;
+}
+
+@media only screen and (max-width: $small) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    background-color: $color-tertiary;
+    max-width: 100%;
+    transition: all .3s;
+  }
+
+  .mobile-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all .4s ease-out;
+
+    &__hamburger {
+      left: 8px;
+    }
+
+    &__hamburger,
+    &__hamburger::before,
+    &__hamburger::after {
+      position: absolute;
+      content: "";
+      width: 28px;
+      height: 2.5px;
+      background: $color-grey-light;
+      border-radius: 20px;
+      transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    &__hamburger::before {
+      top: -8px;
+    }
+    &__hamburger::after {
+      top: 8px;
+    }
+  }
+
+  .open-animate {
+    animation: openAnimateMobile .7s ease;
+  }
+
+  .close-animate {
+    animation: closeAnimateMobile .7s ease;
+  }
+
+  .mobile-toggle--scrolled {
+    background-color: $color-primary;
+    box-shadow: 0 1px 3px $color-grey-dark;
+  }
+
+  .mobile-toggle--active {
+    background: $color-grey-light;
+    box-shadow: none;
+  }
+  
+  .mobile-toggle--active > .mobile-toggle__hamburger {
+    background-color: transparent;
+  }
+
+  .mobile-toggle--active > .mobile-toggle__hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+    background: $color-grey-dark;
+  }
+
+  .mobile-toggle--active > .mobile-toggle__hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background: $color-grey-dark;
+  }
+
+  .sidebar-mobile--active {
+    visibility: initial;
+    opacity: 1;
+  }
+}
+
+@keyframes openAnimateMobile {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes closeAnimateMobile {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+//===================================================
+// BLOG SPECIFIC STYLES
+//===================================================
+
+// Blog post styling
+.blog-post {
+  background-color: $color-white;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: $small) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid darken($color-grey-light, 10%);
+}
+
+.post-title {
+  font-size: $h1-primary;
+  margin-bottom: 1rem;
+  color: $color-grey-dark;
+  line-height: 1.2;
+
+  @media only screen and (max-width: $small) {
+    font-size: $h1-small;
+  }
+}
+
+.post-meta {
+  color: darken($color-grey-dark, 20%);
+  font-size: 1.4rem;
+  margin-top: 1rem;
+
+  .post-date,
+  .post-author {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}
+
+.post-content {
+  line-height: 1.8;
+  font-size: 1.6rem;
+  color: $color-grey-dark;
+
+  h1, h2, h3, h4, h5 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+  }
+
+  blockquote {
+    margin: 2rem 0;
+    padding-left: 2rem;
+    border-left: 4px solid $color-secondary;
+    font-style: italic;
+    color: darken($color-grey-dark, 10%);
+  }
+
+  code {
+    background-color: $code-background;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  pre {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+}
+
+.post-navigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid darken($color-grey-light, 10%);
+}
+
+// Blog listing
+.blog-listing {
+  .post-preview {
+    background-color: $color-white;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    @media only screen and (max-width: $small) {
+      padding: 2rem 1.5rem;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: $h2-primary;
+
+      @media only screen and (max-width: $small) {
+        font-size: $h2-small;
+      }
+
+      a {
+        color: $color-grey-dark;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-secondary;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .post-meta {
+      color: darken($color-grey-dark, 20%);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-excerpt {
+      color: darken($color-grey-dark, 10%);
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// Page content
+.page-content {
+  background-color: $color-white;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: $small) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.page-title {
+  font-size: $h1-primary;
+  margin-bottom: 2rem;
+  color: $color-grey-dark;
+
+  @media only screen and (max-width: $small) {
+    font-size: $h1-small;
+  }
+}
+
+.page-body {
+  line-height: 1.8;
+  font-size: 1.6rem;
+  color: $color-grey-dark;
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Sidebar widgets
+.sidebar-widget {
+  background-color: $color-white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: $h3-small;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $color-secondary;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        color: $color-grey-dark;
+        text-decoration: none;
+        padding: 0.5rem 0;
+        display: block;
+
+        &:hover {
+          color: $color-secondary;
+          padding-left: 0.5rem;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+  }
+}
+
+// Classic blog typography adjustments
+.content {
+  font-family: Georgia, "Times New Roman", serif;
+  
+  @media only screen and (max-width: $small) {
+    font-family: $font-family-primary;
+  }
+}
+
+// Adjust header for blog
+header {
+  p {
+    color: lighten($color-grey-light, 5%);
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+  }
+}
+
