@@ -1,0 +1,189 @@
+/**
+*
+* CUSTOM — Twelve-Sided Leviathan theme-specific styles
+*
+*/
+
+@use "variables" as *;
+@use "mixins" as *;
+
+// =====================================================
+// CUSTOM FONTS
+// =====================================================
+
+@font-face {
+    font-family: 'Neon Sans';
+    src: url('../webfonts/neon-sans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+// =====================================================
+// SITE HEADER — Whale skyline background
+// =====================================================
+
+.site-header {
+    background-color: $color-deep;
+    background-image: url('../images/whale-skyline-public-domain.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba($color-deep, 0.72);
+        z-index: 0;
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+// =====================================================
+// PAGE CONTENT — shared wrapper styles
+// =====================================================
+
+.page-content {
+    padding: 0.5rem 0;
+
+    ul,
+    ol {
+        padding-left: 1.5rem;
+        margin-bottom: $typography-margins;
+    }
+}
+
+// =====================================================
+// SIDEBAR
+// =====================================================
+
+.sidebar {
+    padding-left: 1rem;
+    border-left: 1px solid $color-border;
+
+    @media (max-width: #{$medium - 1}) {
+        padding-left: 0;
+        margin-top: 2rem;
+        border-left: none;
+    }
+}
+
+.sidebar-widget {
+    // background-color: rgba($color-border, 0.35);
+    // border: 1px solid $color-border;
+    // padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: $border-radius;
+
+    h3 {
+        font-size: $h4-small;
+        color: $color-heading;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid $color-heading;
+    }
+
+    p {
+        font-size: 14px;
+        color: $color-text-muted;
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 0.4rem;
+
+            a {
+                color: $color-link;
+                font-size: 14px;
+                text-decoration: none;
+                padding: 0.35rem 0;
+                display: block;
+                transition: padding-left 0.15s ease, color 0.2s;
+
+                &:hover {
+                    color: $color-link-hover;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.sidebar-widget__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: calc(#{$border-radius} - 2px);
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+// =====================================================
+// POST ARTICLE WRAPPER — used in post.html
+// =====================================================
+
+.post-article-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+// =====================================================
+// 404 ERROR PAGE
+// =====================================================
+
+.error-404 {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.error-number {
+    font-family: $font-family-heading;
+    font-size: 6rem;
+    color: $color-heading;
+    line-height: 1;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(160, 212, 85, 0.25);
+}
+
+.error-content p {
+    font-size: 1.1rem;
+    color: $color-text-muted;
+    margin-bottom: 2rem;
+}
+
+.error-actions {
+    margin: 2rem 0;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: $color-accent;
+    color: $color-white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background: $color-accent-hover;
+        color: $color-white;
+        text-decoration: none;
+    }
+}

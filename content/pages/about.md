@@ -1,5 +1,7 @@
 ---
 title: "About"
+metaTitle: "About | Twelve-Sided Leviathan"
+metaDescription: "Twelve-Sided Leviathan is a blog about TTRPG design, dungeon crawling, and old-school game mechanics."
 ---
 
 Welcome to **Twelve-Sided Leviathan**, a blog dedicated to tabletop roleplaying game design, dungeon crawling, and exploration-based gameplay.
@@ -20,4 +22,3 @@ I'm a TTRPG enthusiast who has been playing and designing games for many years. 
 ## Contact
 
 You can find me on various RPG forums and communities. Feel free to reach out if you have questions or want to discuss game design!
-

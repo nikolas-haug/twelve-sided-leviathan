@@ -1,0 +1,423 @@
+/**
+*
+* COMPONENTS — Navigation, blog cards, buttons, forms
+*
+*/
+
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
+// =====================================================
+// PRIMARY NAVIGATION
+// Desktop: horizontal list centered below header
+// Mobile: full-screen overlay triggered by hamburger
+// =====================================================
+
+.main-nav {
+    ul {
+        list-style: none;
+        padding: 0.5rem 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    li {
+        font-size: 1rem;
+        position: relative;
+    }
+
+    a {
+        color: $color-link;
+        text-decoration: none;
+        transition: color 0.2s;
+        letter-spacing: 0.02em;
+
+        &:hover,
+        &:focus {
+            color: $color-link-hover;
+            text-decoration: none;
+        }
+    }
+}
+
+// Hide hamburger and close button on desktop
+// Reset button base styles so it never shows a teal box
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    color: $color-white;
+    cursor: pointer;
+}
+
+.close-menu-btn {
+    display: none;
+}
+
+// =====================================================
+// MOBILE NAVIGATION (max 785px)
+// =====================================================
+
+@media (max-width: $mobile-breakpoint) {
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 8px;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        cursor: pointer;
+        z-index: 5;
+        margin: 0;
+    }
+
+    .hamburger-bar {
+        display: block;
+        width: 28px;
+        height: 4px;
+        margin: 3px 0;
+        padding: 2px 0;
+        background: $color-white;
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: $mobile-navbar-background-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        z-index: 1200;
+        opacity: 0;
+        pointer-events: none;
+
+        ul {
+            flex-direction: column;
+            gap: 2.2rem;
+            align-items: center;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+        }
+
+        &.menu-open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .close-menu-btn {
+        display: block !important;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        background: none;
+        border: none;
+        color: $color-text;
+        font-size: 2.5rem;
+        line-height: 1;
+        z-index: 1300;
+        cursor: pointer;
+        padding: 0.2em 0.5em;
+        transition: color 0.2s;
+
+        &:hover,
+        &:focus {
+            color: $color-text-muted;
+            outline: none;
+        }
+    }
+}
+
+// =====================================================
+// BLOG POST CARDS (listing page)
+// =====================================================
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.post-card {
+    border-bottom: 1px solid $color-border;
+    padding-bottom: 2rem;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.post-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+
+        .post-card__title {
+            color: $color-link-hover;
+        }
+    }
+}
+
+.post-card__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.post-card__title {
+    font-family: $font-family-heading;
+    color: $color-heading;
+    font-size: $h3-small;
+    margin-bottom: 0.35rem;
+    transition: color 0.2s;
+
+    @include small-breakpoint {
+        font-size: $h3-primary;
+    }
+}
+
+.post-card__date {
+    display: block;
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    margin-bottom: 0.6rem;
+}
+
+.post-card__excerpt {
+    color: $color-text-muted;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// =====================================================
+// INDIVIDUAL POST PAGE
+// =====================================================
+
+.post-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-border;
+}
+
+.post-title {
+    font-family: $font-family-heading;
+    color: $color-heading;
+    margin-bottom: 0.4rem;
+}
+
+.post-date {
+    display: block;
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: $color-text-muted;
+}
+
+.post-content {
+    line-height: $base-line-height;
+
+    img {
+        border-radius: $border-radius;
+        margin: 1rem 0;
+    }
+}
+
+.post-footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid $color-border;
+}
+
+.back-to-blog {
+    color: $color-link;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $color-link-hover;
+        text-decoration: none;
+    }
+}
+
+// =====================================================
+// BUTTONS
+// =====================================================
+
+%buttons {
+    display: inline-block;
+    border: $button-border-width $button-border-style $button-border-color;
+    border-radius: $button-border-radius;
+    background: $button-background-color;
+    color: $button-color;
+    font-weight: $button-font-weight;
+    font-family: $button-font-family;
+    font-size: $button-font-size;
+    text-transform: $button-text-transform;
+    padding: 1rem 1.5rem;
+    margin: 0 0 2rem 0;
+    letter-spacing: $button-letter-spacing;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1;
+    transition: all 0.3s;
+}
+
+%buttons-hover {
+    border: $button-border-width $button-border-style color.adjust($button-border-color, $lightness: -10%);
+    background: $button-background-hover;
+    color: $button-color;
+    text-decoration: none;
+}
+
+%buttons-focus {
+    border: $button-border-width $button-border-style color.adjust($button-border-color, $lightness: -10%);
+    background: color.adjust($button-background-color, $lightness: -10%);
+    color: $button-color;
+    text-decoration: none;
+}
+
+#{$buttons} {
+    @extend %buttons;
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    &:hover {
+        @extend %buttons-hover;
+    }
+
+    &:focus,
+    &:active {
+        @extend %buttons-focus;
+    }
+}
+
+.round-button,
+a.round-button {
+    border-radius: $round-buttons;
+}
+
+.square-button,
+a.square-button {
+    border-radius: 0;
+}
+
+.full-button,
+a.full-button {
+    display: block;
+    width: 100%;
+}
+
+// =====================================================
+// FORMS
+// =====================================================
+
+%forms {
+    display: block;
+    border: $form-border;
+    border-radius: $border-radius;
+    padding: 0.75rem 1rem;
+    outline: none;
+    background: $input-background;
+    color: $color-text;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-family: $font-family-primary;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.5;
+}
+
+%forms-hover {
+    border: $form-border-hover;
+}
+
+%forms-focus {
+    border: $form-border-focus;
+    box-shadow: 0 0 0 3px rgba(123, 201, 111, 0.12);
+}
+
+#{$forms} {
+    @extend %forms;
+
+    &:hover {
+        @extend %forms-hover;
+    }
+
+    &:focus,
+    &:active {
+        @extend %forms-focus;
+    }
+}
+
+textarea {
+    overflow: auto;
+    height: auto;
+    resize: vertical;
+}
+
+label {
+    font-weight: 600;
+    max-width: 100%;
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: $color-text-muted;
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+    color: $placeholder;
+}
+
+// =====================================================
+// SOCIAL ICONS
+// =====================================================
+
+.social-icon {
+    padding: 0 0.75rem;
+    font-size: 1.2rem;
+    color: $color-link;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $color-link-hover;
+    }
+}

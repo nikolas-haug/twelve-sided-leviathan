@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> head}}
+<body class="{{bodyClass}}">
+    {{> header}}
+
+    <main class="site-main site-main--wide">
+        <div class="container">
+            <div class="row">
+                <div class="col-med-9 blog-article-wrapper">
+                    {{#content}}
+                    <div class="page-content blog-intro">
+                        {{content}}
+                    </div>
+                    {{/content}}
+
+                    {{#showPostsList}}
+                    <section class="posts-list" aria-label="Blog posts">
+                        {{postsList}}
+                    </section>
+                    {{/showPostsList}}
+                </div>
+
+                {{> sidebar}}
+            </div>
+        </div>
+    </main>
+
+    {{> footer}}
+</body>
+</html>

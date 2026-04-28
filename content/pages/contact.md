@@ -1,5 +1,7 @@
 ---
 title: "Contact"
+metaTitle: "Contact | Twelve-Sided Leviathan"
+metaDescription: "Get in touch to discuss dungeon design, OSR principles, or tabletop RPG game mechanics."
 ---
 
 Have questions about dungeon design, OSR principles, or game mechanics? Want to discuss an adventure you're working on? I'd love to hear from you!
@@ -22,10 +24,6 @@ Feel free to reach out! You can find me on:
 
 ## Feedback and Suggestions
 
-If you have feedback about the blog, suggestions for topics you'd like to see covered, or ideas for future posts, I'd love to hear them. This blog is a work in progress, and reader input helps shape its direction.
-
-## Response Time
-
-I typically respond within a few days, though it may take longer during busy periods. Thanks for your patience!
+If you have feedback about the blog, suggestions for topics you'd like to see covered, or ideas for future posts, I'd love to hear them.
 
 Looking forward to connecting with you!

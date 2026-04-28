@@ -2,9 +2,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{siteTitle}}</title>
+
+    <!-- Primary Meta Tags -->
+    <title>{{metaTitle}}</title>
+    <meta name="title" content="{{metaTitle}}">
+    <meta name="description" content="{{metaDescription}}">
+    <meta name="keywords" content="{{metaKeywords}}">
+    <meta name="author" content="{{metaAuthor}}">
+    <meta name="robots" content="{{metaRobots}}">
+    <link rel="canonical" href="{{canonicalUrl}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ogType}}">
+    <meta property="og:url" content="{{canonicalUrl}}">
+    <meta property="og:title" content="{{ogTitle}}">
+    <meta property="og:description" content="{{ogDescription}}">
+    <meta property="og:image" content="{{ogImage}}">
+    <meta property="og:site_name" content="{{siteTitle}}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{canonicalUrl}}">
+    <meta property="twitter:title" content="{{twitterTitle}}">
+    <meta property="twitter:description" content="{{twitterDescription}}">
+    <meta property="twitter:image" content="{{twitterImage}}">
+
+    <!-- Verification -->
+    <meta name="google-site-verification" content="{{googleVerification}}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{baseUrl}}images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{baseUrl}}images/favicon.png">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{baseUrl}}css/style.css">
+    <link rel="stylesheet" href="{{baseUrl}}css/font-awesome.css">
+
+    <!-- Background image (set via siteBackgroundImage in site.json) -->
+    {{#backgroundImage}}
+    <style>
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-image: url({{backgroundImage}});
+        background-repeat: no-repeat;
+        background-size: cover;
+        pointer-events: none;
+    }
+    </style>
+    {{/backgroundImage}}
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{{schemaType}}",
+      "name": "{{siteTitle}}",
+      "description": "{{metaDescription}}",
+      "url": "{{canonicalUrl}}",
+      "image": "{{ogImage}}",
+      "sameAs": {{schemaSameAs}}
+    }
+    </script>
 </head>

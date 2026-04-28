@@ -1,9 +1,9 @@
 ---
 title: "Dungeon Design Note: Obstacles Support Exploration"
 date: 2025-01-15
-author: "Niko"
-excerpt: "Less Combat ... More Obstacles. A discussion on how obstacles in dungeon design support exploration-based gameplay."
-tags: ["Design", "Dungeon Crawling", "Exploration"]
+slug: "dungeon-design-obstacles-support-exploration"
+excerpt: "Less Combat, More Obstacles. A discussion on how obstacles in dungeon design support exploration-based gameplay."
+metaDescription: "Less Combat, More Obstacles. A discussion on how obstacles in dungeon design support exploration-based gameplay."
 ---
 
 I've been talking about dungeon crawling as a play style here for years, and I'm not alone among RPG bloggers to do so. Most of the points I focus on, such as the importance of turnkeeping, supply mechanics, random encounters, navigating dungeons, and threats to characters that don't involve hp loss, are fairly well understood in the Post-OSR space or at least fairly well represented.

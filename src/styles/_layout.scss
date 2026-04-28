@@ -1,0 +1,301 @@
+/**
+*
+* LAYOUT — Twelve-Sided Leviathan site structure + grid system
+*
+*/
+
+@use "sass:math";
+@use "variables" as *;
+@use "mixins" as *;
+
+// =====================================================
+// SITE HEADER
+// =====================================================
+
+.site-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem $container-padding 1.5rem;
+    height: 175px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    text-align: left;
+    z-index: 2;
+
+    @media (max-width: $mobile-breakpoint) {
+        padding: 1.75rem 1rem 1.25rem;
+    }
+}
+
+.site-logo-wrapper {
+    color: $color-white;
+    font-size: 2.75rem;
+    font-family: $font-family-title;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 12px rgba(10, 15, 50, 0.7), 0 1px 2px rgba(0, 0, 0, 0.45);
+
+    @media (max-width: 600px) {
+        font-size: 2.25rem;
+    }
+}
+
+.site-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: text-shadow 0.3s, color 0.3s;
+
+    &:hover,
+    &:focus {
+        color: $color-white;
+        text-shadow: 0 0 12px $color-heading, 0 0 24px $color-accent, 0 2px 12px rgba(10, 15, 50, 0.7);
+        text-decoration: none;
+    }
+}
+
+.tagline {
+    font-family: $font-family-primary;
+    font-size: 1.05rem;
+    color: $color-text-muted;
+    margin-bottom: 0;
+    text-shadow: 0 2px 12px rgba(10, 15, 50, 0.7), 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+// =====================================================
+// NAV BAR — full-width stripe below site header
+// =====================================================
+
+.nav-bar {
+    background-color: $color-deep;
+    border-bottom: 2px solid $color-accent;
+    position: relative;
+    z-index: 10;
+
+    > .container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 44px;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        > .container {
+            justify-content: center;
+        }
+    }
+}
+
+// =====================================================
+// MAIN CONTENT AREA
+// =====================================================
+
+.site-main {
+    background: $color-bg;
+    padding: 2.25rem 0 1.75rem;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: $mobile-breakpoint) {
+        padding: 2rem 0 1.5rem;
+    }
+}
+
+// Stack sidebar below content on screens narrower than medium breakpoint
+@media (max-width: #{$medium - 1}) {
+    .col-med-9,
+    .col-med-3 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+// Hero image inside page
+.hero-image {
+    margin-bottom: 2rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: $border-radius;
+    }
+}
+
+// =====================================================
+// SITE FOOTER
+// =====================================================
+
+.site-footer {
+    position: relative;
+    background: $color-bg;
+    color: $color-text-muted;
+    text-align: center;
+    padding: 1.25rem 1rem 1rem;
+    font-size: 0.95rem;
+    border-top: 1px solid $color-heading;
+    z-index: 1;
+
+    p {
+        margin: 0;
+    }
+}
+
+.footer-social {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav {
+    margin-bottom: 0.5rem;
+    padding-top: 0.75rem;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: $color-link;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $color-link-hover;
+            text-decoration: none;
+        }
+    }
+}
+
+// =====================================================
+// GRID CONTAINERS
+// =====================================================
+
+.container {
+    @include container-styles
+}
+
+.container-full {
+    @include container-styles
+}
+
+.container-stretch {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+.container-sm {
+    @include container-size($x-small, $container-gutter);
+    @include container-styles
+}
+
+.container-med {
+    @include container-size($small, $container-gutter);
+    @include container-styles
+}
+
+.container-lg {
+    @include container-size($medium, $container-gutter);
+    @include container-styles
+}
+
+@include large-breakpoint {
+    .container {
+        @include container-size($large, $container-gutter);
+    }
+}
+
+// ROWS
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-gap;
+}
+
+.col-auto {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+.col {
+    flex-grow: 1;
+    flex-basis: auto;
+    max-width: 100%;
+}
+
+// Column widths use calc() to account for gap between columns.
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        flex-basis: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+        max-width: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+    }
+    .col-offset-#{$i} {
+        margin-left: math.percentage(math.div($i, $grid-columns));
+    }
+}
+
+@include small-breakpoint {
+    .col-sm {
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-sm-#{$i} {
+            flex-basis: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+            max-width: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+        }
+
+        .col-sm-offset-#{$i} {
+            margin-left: math.percentage(math.div($i, $grid-columns));
+        }
+    }
+}
+
+@include medium-breakpoint {
+    .col-med {
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-med-#{$i} {
+            flex-basis: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+            max-width: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+        }
+
+        .col-med-offset-#{$i} {
+            margin-left: math.percentage(math.div($i, $grid-columns));
+        }
+    }
+}
+
+@include large-breakpoint {
+    .col-lg {
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-lg-#{$i} {
+            flex-basis: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+            max-width: calc(#{math.percentage(math.div($i, $grid-columns))} - #{$grid-gap} * #{math.div($grid-columns - $i, $grid-columns)});
+        }
+
+        .col-lg-offset-#{$i} {
+            margin-left: math.percentage(math.div($i, $grid-columns));
+        }
+    }
+}

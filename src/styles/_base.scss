@@ -1,0 +1,178 @@
+/**
+*
+* BASE HTML — Twelve-Sided Leviathan dark theme
+*
+*/
+
+@use "variables" as *;
+@use "mixins" as *;
+
+html {
+    font-size: $base-font-size;
+    font-family: $font-family-primary;
+    color: $color-text;
+    overflow-x: hidden;
+    background-color: $color-deep;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    line-height: $base-line-height;
+    background-color: $color-bg;
+    font-size: $font-size-primary;
+    min-height: 100vh;
+    position: relative;
+    letter-spacing: $letter-spacing-content;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    max-width: 935px;
+    margin: 0 auto;
+    box-shadow: 0 0 80px rgba(0, 0, 10, 0.7);
+}
+
+p,
+ol,
+ul,
+dl,
+table {
+    margin: 0 0 $typography-margins 0;
+    letter-spacing: $letter-spacing-content;
+}
+
+// Headings use Cardo serif
+h1, h2, h3, h4, h5, h6 {
+    margin: $typography-margins 0;
+    font-weight: $heading-font-weight;
+    font-family: $font-family-heading;
+    line-height: $heading-line-height;
+    letter-spacing: $letter-spacing-heading;
+    color: $color-heading;
+
+    a:link,
+    a:visited {
+        color: $color-heading;
+    }
+}
+
+// Mobile heading sizes
+h1 { font-size: $h1-small; }
+h2 { font-size: $h2-small; }
+h3 { font-size: $h3-small; }
+h4 { font-size: $h4-small; }
+h5 { font-size: $h5-small; }
+
+h1 {
+    margin: 0 0 1.25rem;
+}
+
+h2 {
+    margin: 2rem 0 1rem;
+}
+
+h3 {
+    margin: 1.5rem 0 0.85rem;
+}
+
+// Desktop heading sizes
+@include small-breakpoint {
+    h1 { font-size: $h1-primary; }
+    h2 { font-size: $h2-primary; }
+    h3 { font-size: $h3-primary; }
+    h4 { font-size: $h4-primary; }
+    h5 { font-size: $h5-primary; }
+}
+
+// Links
+a {
+    color: $color-link;
+    transition: color 0.2s;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-link-hover;
+        text-decoration: underline;
+    }
+}
+
+// Blockquotes use serif font
+blockquote {
+    margin: 0 0 $typography-margins 0;
+    border-left: 4px solid $color-heading;
+    padding: 0.75rem 1.5rem;
+    font-size: $blockquote-font-size;
+    font-family: $font-family-serif;
+    color: $color-text-muted;
+
+    cite {
+        display: block;
+        margin-top: $typography-margins;
+        font-size: 0.9rem;
+    }
+}
+
+// Images
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: $typography-margins 0;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    figcaption {
+        font-size: 0.85rem;
+        font-family: $font-family-serif;
+        color: $color-text-muted;
+        text-align: center;
+        margin-top: 0.5rem;
+        font-style: italic;
+    }
+}
+
+iframe {
+    width: 100% !important;
+    margin: 0 0 $typography-margins 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid $color-border;
+    margin: 2rem 0;
+}
+
+// Code
+code,
+pre {
+    font-family: $font-family-mono;
+    background: rgba(0, 0, 0, 0.30);
+    border-radius: 4px;
+}
+
+code {
+    padding: 0.1em 0.4em;
+    font-size: 0.9em;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0 0 $typography-margins 0;
+
+    code {
+        background: none;
+        padding: 0;
+    } 
+}

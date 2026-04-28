@@ -1,0 +1,158 @@
+/**
+*
+* VARIABLES — Twelve-Sided Leviathan theme
+*
+*/
+
+@use "sass:color";
+
+//=====================================================
+// CONTAINERS
+//=====================================================
+
+$x-small: 480px;
+$small: 850px;
+$medium: 992px;
+$large: 1200px;
+
+$container-gutter: 0.95;
+
+// =====================================================
+// BREAKPOINTS
+// =====================================================
+$mobile-breakpoint: 785px;
+
+//=====================================================
+// GRID
+//=====================================================
+
+$grid-columns: 12;
+$grid-gap: 1rem;
+$container-padding: 2rem;
+
+//=====================================================
+// TYPOGRAPHY
+//=====================================================
+
+$base-font-size: 100%;
+$base-line-height: 1.7;
+
+$font-family-primary:  'Figtree', Arial, sans-serif;
+$font-family-heading:  'Cormorant Garamond', Georgia, serif;
+$font-family-title:    'Neon Sans', Georgia, serif;
+$font-family-serif:    Georgia, serif;
+$font-family-mono:     'Space Mono', monospace;
+
+$font-size-primary:    1.05rem;
+
+// Headings
+$heading-font-weight:  600;
+$heading-line-height:  1.2;
+
+// Small headings (mobile)
+$h1-small: 2.2rem;
+$h2-small: 1.9rem;
+$h3-small: 1.6rem;
+$h4-small: 1.3rem;
+$h5-small: 1.1rem;
+
+// Primary headings (desktop)
+$h1-primary: 2.5rem;
+$h2-primary: 2.1rem;
+$h3-primary: 1.75rem;
+$h4-primary: 1.5rem;
+$h5-primary: 1.3rem;
+
+$typography-margins:   1.5rem;
+$blockquote-font-size: 1.05rem;
+
+$letter-spacing-content: 0.05px;
+$letter-spacing-heading: 0.3px;
+
+//=====================================================
+// COLOR — Deep navy/teal dungeon palette
+//=====================================================
+
+$color-bg:          #1a1c3a;   // Deep navy background
+$color-deep:        #0e0f24;   // Deepest navy (header bg fallback)
+$color-text:        #d3f3ee;   // Light mint text
+$color-text-muted:  #7fa8b0;   // Muted teal text
+$color-heading:     #e2f4fb;   // Near-white with cool blue tint
+$color-border:      #2a3560;   // Dark navy border
+$color-link:        #9ed8de;   // Light teal links
+$color-link-hover:  #d3f3ee;   // Light mint on hover
+$color-accent:      #456f73;   // Teal accent (primary)
+$color-accent-hover:#35555a;   // Darker teal hover
+$color-yellow:      #e2f4fb;   // Near-white with cool blue tint
+$color-white:       #fff;
+$color-black:       #000;
+
+//=====================================================
+// SPACING
+//=====================================================
+
+$margin-utility:  1rem;
+$padding-utility: 1rem;
+
+//=====================================================
+// BORDERS
+//=====================================================
+
+$border-width:  1px;
+$border-style:  solid;
+$border-radius: 6px;
+$borders:       $border-width $border-style $color-border;
+
+//=====================================================
+// NAVIGATION
+//=====================================================
+
+$navbar-padding:               0.5rem 1rem;
+$mobile-navbar-background-color: rgba(14, 15, 36, 1);
+$navbar-link-color-hover:      $color-link-hover;
+
+//=====================================================
+// FORMS
+//=====================================================
+
+$buttons: (".button, a.button, button, [type=submit], [type=reset], [type=button]");
+
+$forms: (
+  "[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea"
+);
+
+$input-background:  #13142b;
+$placeholder:       $color-text-muted;
+$form-border:       1px solid $color-border;
+$form-border-hover: 1px solid color.adjust($color-border, $lightness: 10%);
+$form-border-focus: 1px solid $color-link;
+
+//=====================================================
+// BUTTONS
+//=====================================================
+
+$button-background-color: $color-accent;
+$button-background-hover: $color-accent-hover;
+$button-color:            #fff;
+$button-font-weight:      600;
+$button-font-family:      $font-family-primary;
+$button-font-size:        1rem;
+$button-border-width:     1px;
+$button-border-style:     solid;
+$button-border-color:     $color-accent;
+$button-border-radius:    $border-radius;
+$button-text-transform:   none;
+$button-letter-spacing:   0.02em;
+
+$accent-button-background-color: $color-link;
+$accent-button-color:            #fff;
+$accent-button-color-hover:      color.adjust($color-link, $lightness: 10%);
+
+$muted-border:            1px solid $color-text-muted;
+$muted-border-hover:      1px solid $color-link;
+$muted-background:        transparent;
+$muted-background-hover:  transparent;
+$muted-color:             $color-text-muted;
+$muted-color-hover:       $color-link;
+
+$round-buttons: 40px;

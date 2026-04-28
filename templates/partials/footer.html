@@ -1,6 +1,16 @@
-<footer class="text-center">
-    <div class="container-lg">
-        <p>&copy; 2025 {{siteTitle}}</p>
+<footer class="site-footer">
+    {{#socialIcons}}
+    <div class="footer-social">
+        {{socialIcons}}
     </div>
+    {{/socialIcons}}
+    <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+            {{footerNavItems}}
+        </ul>
+    </nav>
+    <p>&copy; {{year}} {{siteTitle}}. All rights reserved.</p>
 </footer>
 
+<script src="{{baseUrl}}js/navigation.js"></script>
+<script src="{{baseUrl}}js/main.js"></script>

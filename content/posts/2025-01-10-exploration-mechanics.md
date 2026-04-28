@@ -1,12 +1,14 @@
 ---
 title: "Exploration Mechanics in Classic D&D"
 date: 2025-01-10
-author: "Niko"
+slug: "exploration-mechanics-in-classic-dnd"
 excerpt: "A look at how exploration mechanics work in classic D&D and why they matter for dungeon crawling."
-tags: ["Design", "Exploration", "OSR"]
+metaDescription: "A look at how exploration mechanics work in classic D&D and why they matter for dungeon crawling."
 ---
 
 Exploration is one of the three pillars of D&D gameplay, alongside combat and social interaction. Yet in many modern games, exploration gets short shrift. This post explores how classic D&D handled exploration and why those mechanics still matter today.
+
+![A whale and city skyline](../images/whale-skyline-public-domain.jpg "A whale and city skyline")
 
 ## Turn-Based Exploration
 

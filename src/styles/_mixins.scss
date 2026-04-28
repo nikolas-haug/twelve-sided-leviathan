@@ -1,0 +1,48 @@
+/** 
+*
+* Media queries for a mobile first layout
+*
+*/
+
+@use "variables" as *;
+
+@mixin x-small-breakpoint {
+    @media (min-width: #{$x-small}) {
+        @content;
+    }
+}
+
+@mixin small-breakpoint {
+    @media (min-width: #{$small}) {
+        @content;
+    }
+}
+
+@mixin medium-breakpoint {
+    @media (min-width: #{$medium}) {
+        @content;
+    }
+}
+
+@mixin large-breakpoint {
+    @media (min-width: #{$large}) {
+        @content;
+    }
+}
+
+@mixin container-size($size, $gutter) {
+    max-width: calc(#{$size} * #{$gutter}); 
+}
+
+@mixin container-styles {
+    width: 100%;
+    padding-right: $container-padding;
+    padding-left: $container-padding;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (max-width: $mobile-breakpoint) {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
