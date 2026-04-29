@@ -1,0 +1,328 @@
+/**
+*
+* LIGHT MODE — html.light-mode overrides
+* Dark mode is the default; these rules fire only when the toggle is active.
+* The class is placed on <html> so the inline flash-prevention script in
+* <head> can apply it before the body is parsed.
+*
+*/
+
+// =====================================================
+// BASE
+// =====================================================
+
+html.light-mode {
+    background-color: #c8cfd4;
+    color: #1a1c2e;
+}
+
+html.light-mode body {
+    background-color: #f0ede6;
+    color: #1a1c2e;
+}
+
+// Headings
+
+html.light-mode h1,
+html.light-mode h2,
+html.light-mode h3,
+html.light-mode h4,
+html.light-mode h5,
+html.light-mode h6 {
+    color: #0e1020;
+    font-weight: 700;
+
+    a:link,
+    a:visited {
+        color: #0e1020;
+    }
+}
+
+// Links
+
+html.light-mode a {
+    color: #1a5c66;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: #0d3a42;
+    }
+}
+
+// Site header links stay white — they're on top of the whale photo
+html.light-mode .site-header a,
+html.light-mode .site-title-link {
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+    }
+}
+
+// Blockquote
+
+html.light-mode blockquote {
+    border-left-color: #0e1020;
+    color: #4a6070;
+}
+
+// HR
+
+html.light-mode hr {
+    border-top-color: #c0ccd6;
+}
+
+// Figcaption
+
+html.light-mode figcaption {
+    color: #4a6070;
+}
+
+// Code / pre
+
+html.light-mode code,
+html.light-mode pre {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+// Site header overlay — lightened so more of the image shows through,
+// but still dark enough to keep the white site title readable
+
+html.light-mode .site-header::before {
+    background-color: rgba(14, 15, 36, 0.35);
+}
+
+// Tagline — override the muted teal so it stays readable on the photo
+// at the reduced overlay opacity (white passes WCAG AAA here)
+
+html.light-mode .tagline {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+// NAV BAR
+
+html.light-mode .nav-bar {
+    background-color: #e2ddd5;
+    border-bottom-color: #456f73;
+}
+
+html.light-mode .main-nav a {
+    color: #1a5c66;
+
+    &:hover,
+    &:focus {
+        color: #0d3a42;
+    }
+}
+
+// Theme toggle button in light mode — show moon, hide sun
+
+html.light-mode .theme-toggle-btn {
+    color: #1a5c66;
+    border-color: rgba(26, 92, 102, 0.4);
+
+    &:hover,
+    &:focus {
+        color: #0d3a42;
+        border-color: #0d3a42;
+        background: rgba(26, 92, 102, 0.1);
+    }
+
+    .theme-icon--sun  { display: none; }
+    .theme-icon--moon { display: inline; }
+}
+
+// =====================================================
+// MOBILE NAVIGATION
+// =====================================================
+
+@media (max-width: 785px) {
+    html.light-mode .hamburger-btn {
+        color: #0e1020;
+    }
+
+    html.light-mode .hamburger-bar {
+        background: #0e1020;
+    }
+
+    html.light-mode .main-nav {
+        background: rgba(232, 228, 220, 1);
+    }
+
+    html.light-mode .close-menu-btn {
+        color: #1a1c2e;
+
+        &:hover,
+        &:focus {
+            color: #4a6070;
+        }
+    }
+}
+
+// =====================================================
+// MAIN CONTENT + FOOTER
+// =====================================================
+
+html.light-mode .site-main {
+    background: #f0ede6;
+}
+
+html.light-mode .site-footer {
+    background: #f0ede6;
+    color: #4a6070;
+    border-top-color: #0e1020;
+}
+
+html.light-mode .footer-nav a {
+    color: #1a5c66;
+
+    &:hover {
+        color: #0d3a42;
+    }
+}
+
+html.light-mode .social-icon {
+    color: #1a5c66;
+
+    &:hover {
+        color: #0d3a42;
+    }
+}
+
+// =====================================================
+// BLOG POST CARDS
+// =====================================================
+
+html.light-mode .post-card {
+    border-bottom-color: #c0ccd6;
+}
+
+html.light-mode .post-card__link {
+    &:hover,
+    &:focus {
+        .post-card__title {
+            color: #0d3a42;
+        }
+    }
+}
+
+html.light-mode .post-card__title {
+    color: #0e1020;
+}
+
+html.light-mode .post-card__date,
+html.light-mode .post-card__excerpt {
+    color: #4a6070;
+}
+
+// =====================================================
+// INDIVIDUAL POST PAGE
+// =====================================================
+
+html.light-mode .post-header {
+    border-bottom-color: #c0ccd6;
+}
+
+html.light-mode .post-title {
+    color: #0e1020;
+}
+
+html.light-mode .post-date {
+    color: #4a6070;
+}
+
+html.light-mode .post-footer {
+    border-top-color: #c0ccd6;
+}
+
+html.light-mode .back-to-blog {
+    color: #1a5c66;
+
+    &:hover {
+        color: #0d3a42;
+    }
+}
+
+// =====================================================
+// FORMS
+// =====================================================
+
+html.light-mode [type="color"],
+html.light-mode [type="date"],
+html.light-mode [type="datetime"],
+html.light-mode [type="datetime-local"],
+html.light-mode [type="email"],
+html.light-mode [type="month"],
+html.light-mode [type="number"],
+html.light-mode [type="password"],
+html.light-mode [type="search"],
+html.light-mode [type="tel"],
+html.light-mode [type="text"],
+html.light-mode [type="url"],
+html.light-mode [type="week"],
+html.light-mode [type="time"],
+html.light-mode select,
+html.light-mode textarea {
+    background: #e8e4dc;
+    border-color: #c0ccd6;
+    color: #1a1c2e;
+
+    &:hover {
+        border-color: #a8b8c4;
+    }
+
+    &:focus,
+    &:active {
+        border-color: #1a5c66;
+        box-shadow: 0 0 0 3px rgba(26, 92, 102, 0.12);
+    }
+}
+
+html.light-mode label {
+    color: #4a6070;
+}
+
+html.light-mode ::-webkit-input-placeholder { color: #7a8fa0; }
+html.light-mode ::-moz-placeholder          { color: #7a8fa0; }
+html.light-mode :-moz-placeholder           { color: #7a8fa0; }
+html.light-mode :-ms-input-placeholder      { color: #7a8fa0; }
+
+// =====================================================
+// SIDEBAR
+// =====================================================
+
+html.light-mode .sidebar {
+    border-left-color: #c0ccd6;
+}
+
+html.light-mode .sidebar-widget h3 {
+    color: #0e1020;
+    border-bottom-color: #0e1020;
+}
+
+html.light-mode .sidebar-widget p {
+    color: #4a6070;
+}
+
+html.light-mode .sidebar-widget ul li a {
+    color: #1a5c66;
+
+    &:hover {
+        color: #0d3a42;
+    }
+}
+
+// =====================================================
+// 404 ERROR PAGE
+// =====================================================
+
+html.light-mode .error-number {
+    color: #0e1020;
+    text-shadow: 0 0 20px rgba(26, 92, 102, 0.15);
+}
+
+html.light-mode .error-content p {
+    color: #4a6070;
+}

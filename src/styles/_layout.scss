@@ -82,7 +82,7 @@
 
     @media (max-width: $mobile-breakpoint) {
         > .container {
-            justify-content: center;
+            justify-content: space-between;
         }
     }
 }

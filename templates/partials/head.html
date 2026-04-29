@@ -59,6 +59,16 @@
     </style>
     {{/backgroundImage}}
 
+    <!-- Theme: restore saved preference before first paint to avoid flash -->
+    <script>
+    window.SITE_BASE_URL = "{{baseUrl}}";
+    (function() {
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
+        }
+    })();
+    </script>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {

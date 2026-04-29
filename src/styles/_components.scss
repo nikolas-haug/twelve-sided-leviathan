@@ -408,6 +408,83 @@ label {
 }
 
 // =====================================================
+// THEME TOGGLE BUTTON
+// =====================================================
+
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: auto 0 auto auto;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: 1px solid rgba($color-link, 0.4);
+    border-radius: 50%;
+    color: $color-link;
+    font-size: 1rem;
+    line-height: .8;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+        color: $color-link-hover;
+        border-color: $color-link-hover;
+        background: rgba($color-link, 0.1);
+        outline: none;
+        box-shadow: none;
+    }
+
+    // In dark mode: show sun (to switch to light), hide moon
+    .theme-icon--sun  { display: inline; }
+    .theme-icon--moon { display: none; }
+}
+
+// =====================================================
+// THEME ANNOUNCEMENT BAR
+// Fixed bottom strip that fades in on mode toggle,
+// shows a flavour phrase, then fades out after 5s.
+// =====================================================
+
+.theme-announcement {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 9, 22, 0.93);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+    &.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &__text {
+        font-family: $font-family-heading;
+        font-style: italic;
+        font-size: $h4-primary;
+        color: $color-heading;
+        text-align: center;
+        margin: 0;
+        letter-spacing: 0.06em;
+        padding: 0 2rem;
+    }
+}
+
+// =====================================================
 // SOCIAL ICONS
 // =====================================================
 
