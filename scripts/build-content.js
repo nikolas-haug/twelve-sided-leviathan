@@ -149,6 +149,15 @@ renderer.image = (href, title, text) => {
   return `<img src="${href}" alt="${text}">`;
 };
 
+/**
+ * Post HTML is served from /<slug>/index.html. CMS tools often emit root-absolute
+ * paths like /images/foo.jpg, which resolve incorrectly on GitHub Pages project
+ * sites (they hit the domain root, not the repo). Rewrite to ../images/...
+ */
+function normalizePostHtmlAssetPaths(html) {
+  return html.replace(/\b(src|href)="\/images\//g, '$1="../images/');
+}
+
 // Process markdown file
 function processMarkdown(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
@@ -385,7 +394,7 @@ function buildPosts(siteData, generateNavHTML, generateFooterNavHTML, socialIcon
       title: post.frontmatter.title,
       postDate: formatDate(post.frontmatter.date),
       postExcerpt: post.frontmatter.excerpt || '',
-      content: post.content,
+      content: normalizePostHtmlAssetPaths(post.content),
       heroImage,
       backgroundImage,
       sidebarContent: generateSidebarHTML(siteData, baseUrl),
