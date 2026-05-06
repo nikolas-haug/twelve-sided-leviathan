@@ -132,12 +132,25 @@ renderer.image = (href, title, text) => {
 };
 
 /**
- * Post HTML is served from /<slug>/index.html. CMS tools often emit root-absolute
- * paths like /images/foo.jpg, which resolve incorrectly on GitHub Pages project
- * sites (they hit the domain root, not the repo). Rewrite to ../images/...
+ * Normalize asset paths in rendered HTML so they resolve correctly regardless
+ * of where the page lives on the site.
+ *
+ * Authors may write image paths as /images/foo.jpg (root-absolute), ../images/
+ * (relative assuming one level of nesting), or ./images/. None of these work
+ * universally across all page depths on a GitHub Pages project site
+ * (served under /repo-name/ rather than /). This rewrites all three variants
+ * to ${baseUrl}images/, which is always correct relative to the rendered file.
+ *
+ * Examples:
+ *   index.html        baseUrl='./'  →  ./images/foo.jpg
+ *   blog/index.html   baseUrl='../' →  ../images/foo.jpg
+ *   my-post/index.html baseUrl='../' → ../images/foo.jpg
  */
-function normalizePostHtmlAssetPaths(html) {
-  return html.replace(/\b(src|href)="\/images\//g, '$1="../images/');
+function normalizeHtmlAssetPaths(html, baseUrl) {
+  return html.replace(
+    /\b(src|href)="(?:\/|\.\.\/|\.\/)?images\//g,
+    `$1="${baseUrl}images/`
+  );
 }
 
 // Process markdown file
@@ -376,7 +389,7 @@ function buildPosts(siteData, generateNavHTML, generateFooterNavHTML, socialIcon
       title: post.frontmatter.title,
       postDate: formatDate(post.frontmatter.date),
       postExcerpt: post.frontmatter.excerpt || '',
-      content: normalizePostHtmlAssetPaths(post.content),
+      content: normalizeHtmlAssetPaths(post.content, baseUrl),
       heroImage,
       backgroundImage,
       sidebarContent: generateSidebarHTML(siteData, baseUrl),
@@ -445,7 +458,7 @@ function buildBlogListing(posts, siteData, generateNavHTML, generateFooterNavHTM
     schemaSameAs,
     year: new Date().getFullYear(),
     title: blogPage.frontmatter.title,
-    content: blogPage.content,
+    content: normalizeHtmlAssetPaths(blogPage.content, baseUrl),
     postsList,
     showPostsList: blogPage.frontmatter.showPostsList !== false,
     heroImage: blogPage.frontmatter.heroImage
@@ -535,7 +548,7 @@ function buildAll() {
       schemaSameAs,
       year: new Date().getFullYear(),
       title: pageMd.frontmatter.title,
-      content: pageMd.content,
+      content: normalizeHtmlAssetPaths(pageMd.content, config.baseUrl),
       heroImage: pageMd.frontmatter.heroImage
         ? `${config.baseUrl}${pageMd.frontmatter.heroImage.replace(/^\//, '')}`
         : '',
