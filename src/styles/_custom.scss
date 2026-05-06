@@ -51,6 +51,18 @@
 .page-content {
     padding: 0.5rem 0;
 
+    .page-title {
+        margin-bottom: 0;
+        line-height: 1;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: $color-text-muted;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
     ul,
     ol {
         padding-left: 1.5rem;

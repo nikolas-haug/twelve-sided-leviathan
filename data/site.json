@@ -7,35 +7,19 @@
   "googleVerification": "",
   "nav": [
     { "url": "", "label": "Home" },
-    { "url": "blog/", "label": "Blog" },
-    { "url": "about/", "label": "About" },
-    { "url": "contact/", "label": "Contact" }
+    { "url": "blog/", "label": "Blog" }
   ],
   "footerNav": [
-    { "url": "blog/", "label": "Blog" },
-    { "url": "about/", "label": "About" },
-    { "url": "contact/", "label": "Contact" }
+    { "url": "blog/", "label": "Blog" }
   ],
   "socialLinks": [],
   "siteBackgroundImage": "",
   "sidebarWidgets": [
     {
-      "title": "Featured Articles",
+      "title": "Recent Fragments",
       "links": [
-        { "label": "Exploration Mechanics in Classic D&D", "url": "exploration-mechanics-in-classic-dnd/" },
-        { "label": "Dungeon Design: Obstacles", "url": "dungeon-design-obstacles-support-exploration/" }
-      ]
-    },
-    {
-      "title": "Soundbreakers RPG",
-      "image": "images/whale-skyline-public-domain.jpg",
-      "imageAlt": "A whale breaching at sunset over a harbour skyline",
-      "text": "Twelve-Sided Leviathan is a blog about old-school dungeon design and tabletop roleplaying.",
-      "paragraphs": [
-        "Written by a lifelong fan of OSR exploration, trap design, and wilderness travel."
-      ],
-      "links": [
-        { "label": "Read more", "url": "about/" }
+        { "label": "Tyov's Note", "url": "tyov-note/" },
+        { "label": "Dredge notes", "url": "dredge-notes/" }
       ]
     }
   ]

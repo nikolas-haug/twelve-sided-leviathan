@@ -42,24 +42,6 @@ const PAGE_CONFIGS = {
     sitemapChangefreq: 'monthly'
   },
 
-  about: {
-    template: 'page',
-    outputPath: 'about/index.html',
-    baseUrl: '../',
-    sitemapUrl: '/about/',
-    sitemapPriority: '0.7',
-    sitemapChangefreq: 'yearly'
-  },
-
-  contact: {
-    template: 'page',
-    outputPath: 'contact/index.html',
-    baseUrl: '../',
-    sitemapUrl: '/contact/',
-    sitemapPriority: '0.6',
-    sitemapChangefreq: 'yearly'
-  },
-
   404: {
     template: 'page',
     outputPath: '404.html',
